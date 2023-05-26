@@ -357,7 +357,9 @@ int open_callback(kis_capture_handler_t *caph, uint32_t seqno, char *definition,
     const int num_dwords_buffer = 4096 * 16;
     const int num_transfers = 16;
     const int stream_timeout = 10000000;
-    const bladerf_sample_rate sample_rate = 20 * 1000 * 1000;
+//    const bladerf_sample_rate sample_rate = 20 * 1000 * 1000;
+/* This is what we're changing to get the reduced bandwidth channels to work. (i.e. changing it from 20 * 1000 * 1000 to 5 * 1000 * 1000) */
+    const bladerf_sample_rate sample_rate = 5 * 1000 * 1000;
 
     if ((placeholder_len = cf_parse_interface(&placeholder, definition)) <= 0) {
         snprintf(msg, STATUS_MAX, "Unable to find interface in definition"); 
